@@ -68,3 +68,5 @@ resource applicatoinInsights 'Microsoft.Insights/components@2020-02-02' = {
     WorkspaceResourceId: logAnalyticksWorkspace.id
   }
 }
+
+//connection test
