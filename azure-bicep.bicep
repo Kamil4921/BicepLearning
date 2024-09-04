@@ -54,19 +54,10 @@ resource appconfig 'Microsoft.Web/sites/config@2023-12-01' = {
   }
 }
 
-resource logAnalyticksWorkspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' existing = {
-  scope: resourceGroup(subscription().subscriptionId, 'bicep-sharedresources')
-  name: 'Bicep-logAnalyticksWorkspace'
-}
-
-resource applicatoinInsights 'Microsoft.Insights/components@2020-02-02' = {
-  name: 'apInPortal-${enviroment}'
-  location: location
-  kind: 'web'
-  properties:{
-    Application_Type: 'web'
-    WorkspaceResourceId: logAnalyticksWorkspace.id
+module applicationInsightsDeployment 'modules/application-insights.bicep' = {
+  name: 'applicationInsights'
+  params: {
+    location: location
+    enviroment: enviroment
   }
 }
-
-//connection test
