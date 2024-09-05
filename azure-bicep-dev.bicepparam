@@ -1,6 +1,6 @@
 using 'azure-bicep.bicep'
 
-param ConfigurationSettings = {
+param configurationSettings = {
   awesomeFeature: true
   awesomeFeatureCounter: 2
   displayedAwesomeFeatureName: 'LinuxPc'
