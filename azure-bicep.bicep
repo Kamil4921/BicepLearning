@@ -24,6 +24,7 @@ module applicationInsightsDeployment 'modules/application-insights.bicep' = {
   params: {
     location: location
     enviroment: enviroment
+    metricksPublisherPrincipalId: appServiceModule.outputs.websiteManagedIdentityPrincipalId
   }
 }
 
